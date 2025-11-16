@@ -2,7 +2,9 @@
 
 Aqlli shahar boshqaruv tizimi - JavaScript ES6 va 6 ta design pattern bilan qurilgan.
 
-## 🚀 Tezkor Boshlash
+**Texnologiya:** JavaScript (ES6) tilida yozilgan, Node.js muhitida ishlaydi, Vitest orqali test qilingan.
+
+## Tezkor Boshlash
 
 ```bash
 npm install        # Paketlarni o'rnatish
@@ -10,17 +12,16 @@ node main.js       # Dasturni ishga tushirish
 npm test           # Testlarni ishga tushirish
 ```
 
-## 📋 Nima qiladi?
+## Nima qiladi?
 
 Shahar infratuzilmasini boshqaradi:
-- 💡 Yoritish tizimi
-- 🚗 Transport tizimi  
-- 🔒 Xavfsizlik tizimi
-- ⚡ Energiya tizimi
+- Yoritish tizimi
+- Transport tizimi  
+- Xavfsizlik tizimi
+- Energiya tizimi
 
-## 🧩 Design Patterns (6 ta)
 
-## 🧩 Design Patterns (6 ta)
+## Design Patterns (6 ta)
 
 | Pattern | Vazifasi | Fayl |
 |---------|----------|------|
@@ -31,9 +32,9 @@ Shahar infratuzilmasini boshqaradi:
 | **Proxy** | Ruxsat tekshirish | `core/proxy/SubsystemProxy.js` |
 | **Facade** | Sodda interfeys | `core/singleton/CityController.js` |
 
-## 🧪 Testlar
+## Testlar
 
-**46 ta test - barchasi muvaffaqiyatli ✅**
+**46 ta test - barchasi muvaffaqiyatli**
 
 ```bash
 npm test                # Oddiy test
@@ -51,11 +52,9 @@ npm run test:ui         # Brauzerda ko'rish
 - Module tests - 4 ta test
 - Integration - 2 ta test
 
-**Coverage:** 90.05% 📊
+**Coverage:** 90.05%
 
-**Coverage:** 90.05% 📊
-
-## 📁 Papka tuzilmasi
+## Papka tuzilmasi
 
 ```
 shoxruzbek/
@@ -74,7 +73,7 @@ shoxruzbek/
     └── energy/
 ```
 
-## 💻 Qanday ishlaydi?
+## Qanday ishlaydi?
 
 1. Dasturni ishga tushiring: `node main.js`
 2. Savollarga javob bering:
@@ -84,9 +83,7 @@ shoxruzbek/
    - Ob-havo: clear/rainy/cloudy
    - Rol: admin/user/guest
 
-## 👥 Rollar
-
-## 👥 Rollar
+## Rollar
 
 | Rol | Ruxsatlar |
 |-----|-----------|
@@ -94,7 +91,7 @@ shoxruzbek/
 | **User** | Ko'rish va boshqarish (read, control) |
 | **Guest** | Faqat ko'rish (read) |
 
-## 📝 Kod namunasi
+## Kod namunasi
 
 ```javascript
 // Controller yaratish (Singleton)

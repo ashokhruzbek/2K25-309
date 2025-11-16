@@ -1,182 +1,120 @@
-# SmartCity System - Aqlli Shahar Boshqaruv Tizimi
+# SmartCity System
 
-## Loyiha haqida
+Aqlli shahar boshqaruv tizimi - JavaScript ES6 va 6 ta design pattern bilan qurilgan.
 
-SmartCity System - bu konsol asosidagi aqlli shahar boshqaruv tizimi bo'lib, shaharning turli infratuzilma tizimlarini boshqarish uchun mo'ljallangan. Loyiha 6 ta design pattern yordamida qurilgan va to'liq test qilingan.
+## 🚀 Tezkor Boshlash
 
-## Texnologiyalar
+```bash
+npm install        # Paketlarni o'rnatish
+node main.js       # Dasturni ishga tushirish
+npm test           # Testlarni ishga tushirish
+```
 
-- **Til:** JavaScript (ES6+)
-- **Runtime:** Node.js v20.18.0
-- **Test Framework:** Vitest 4.0.8
-- **Module System:** ES Modules
+## 📋 Nima qiladi?
 
-## Arxitektura
+Shahar infratuzilmasini boshqaradi:
+- 💡 Yoritish tizimi
+- 🚗 Transport tizimi  
+- 🔒 Xavfsizlik tizimi
+- ⚡ Energiya tizimi
 
-Loyiha quyidagi design patternlardan foydalanadi:
+## 🧩 Design Patterns (6 ta)
 
-### 1. **Singleton Pattern**
-- **Fayl:** `core/singleton/CityController.js`
-- **Vazifasi:** Tizimning markaziy controller klassi, faqat bitta instance yaratilishini ta'minlaydi
-- **Qo'llanilishi:** Butun tizim davomida bitta controller orqali barcha subsystemlarni boshqarish
+## 🧩 Design Patterns (6 ta)
 
-### 2. **Factory Pattern**
-- **Fayl:** `core/factories/SubsystemFactory.js`
-- **Vazifasi:** Turli xil subsystemlarni yaratish
-- **Qo'llanilishi:** Lighting, Transport, Security va Energy subsystemlarini yaratish
+| Pattern | Vazifasi | Fayl |
+|---------|----------|------|
+| **Singleton** | Bitta controller | `core/singleton/CityController.js` |
+| **Factory** | Sistemalarni yaratish | `core/factories/SubsystemFactory.js` |
+| **Builder** | Bino qurish | `core/builders/BuildingBuilder.js` |
+| **Adapter** | Ma'lumotlarni moslashtirish | `core/adapters/TrafficAdapter.js` |
+| **Proxy** | Ruxsat tekshirish | `core/proxy/SubsystemProxy.js` |
+| **Facade** | Sodda interfeys | `core/singleton/CityController.js` |
 
-### 3. **Builder Pattern**
-- **Fayl:** `core/builders/BuildingBuilder.js`
-- **Vazifasi:** Murakkab bino obyektlarini bosqichma-bosqich qurish
-- **Qo'llanilishi:** Aqlli binolarni turli tizimlar bilan jihozlash
+## 🧪 Testlar
 
-### 4. **Adapter Pattern**
-- **Fayllar:** 
-  - `core/adapters/TrafficAdapter.js`
-  - `core/adapters/WeatherAdapter.js`
-- **Vazifasi:** Tashqi API formatlarini ichki tizim formatiga moslashtirish
-- **Qo'llanilishi:** Trafik va ob-havo ma'lumotlarini tizimga integratsiya qilish
+**46 ta test - barchasi muvaffaqiyatli ✅**
 
-### 5. **Proxy Pattern**
-- **Fayl:** `core/proxy/SubsystemProxy.js`
-- **Vazifasi:** Subsystemlarga kirishni nazorat qilish va foydalanuvchi huquqlarini tekshirish
-- **Qo'llanilishi:** Admin, User va Guest rollariga turli darajadagi ruxsatlar berish
+```bash
+npm test                # Oddiy test
+npm run test:coverage   # Qamrov bilan (90%+)
+npm run test:ui         # Brauzerda ko'rish
+```
 
-### 6. **Facade Pattern**
-- **Fayl:** `core/singleton/CityController.js`
-- **Vazifasi:** Murakkab subsystemlarga sodda interfeys yaratish
-- **Qo'llanilishi:** Barcha tizimlarni bitta buyruq bilan boshqarish (startAllSystems, stopAllSystems, nightMode, emergencyMode)
+**Nima test qilingan:**
+- Singleton - 7 ta test
+- Factory - 5 ta test
+- Builder - 6 ta test
+- Adapter (Traffic) - 5 ta test
+- Adapter (Weather) - 6 ta test
+- Proxy - 11 ta test
+- Module tests - 4 ta test
+- Integration - 2 ta test
 
-## Katalog strukturasi
+**Coverage:** 90.05% 📊
+
+**Coverage:** 90.05% 📊
+
+## 📁 Papka tuzilmasi
 
 ```
 shoxruzbek/
-├── main.js                      # Asosiy dastur
-├── config.js                    # Konfiguratsiya
-├── test.spec.js                 # Unit testlar
-├── package.json                 # Dependencies
-├── core/                        # Asosiy tizim komponentlari
+├── main.js              # Asosiy dastur
+├── test.spec.js         # Testlar
+├── core/                # Patternlar
 │   ├── singleton/
-│   │   └── CityController.js    # Singleton pattern
 │   ├── factories/
-│   │   └── SubsystemFactory.js  # Factory pattern
 │   ├── builders/
-│   │   └── BuildingBuilder.js   # Builder pattern
 │   ├── adapters/
-│   │   ├── TrafficAdapter.js    # Adapter pattern (Trafik)
-│   │   └── WeatherAdapter.js    # Adapter pattern (Ob-havo)
 │   └── proxy/
-│       └── SubsystemProxy.js    # Proxy pattern
-└── modules/                     # Shahar subsystemlari
+└── modules/             # Tizimlar
     ├── lighting/
-    │   └── LightingSystem.js    # Yoritish tizimi
     ├── transport/
-    │   └── TransportSystem.js   # Transport tizimi
     ├── security/
-    │   └── SecuritySystem.js    # Xavfsizlik tizimi
     └── energy/
-        └── EnergySystem.js      # Energiya tizimi
 ```
 
-## O'rnatish
+## 💻 Qanday ishlaydi?
 
-1. Repository ni clone qiling:
-```bash
-git clone https://github.com/IslomboevBotir/2K25-309.git
-cd 2K25-309/shoxruzbek
-```
+1. Dasturni ishga tushiring: `node main.js`
+2. Savollarga javob bering:
+   - Trafik darajasi: 0-100
+   - Tezlik: km/h
+   - Harorat: °C
+   - Ob-havo: clear/rainy/cloudy
+   - Rol: admin/user/guest
 
-2. Dependencies o'rnating:
-```bash
-npm install
-```
+## 👥 Rollar
 
-## Ishlatish
+## 👥 Rollar
 
-### Asosiy dasturni ishga tushirish:
-```bash
-node main.js
-```
+| Rol | Ruxsatlar |
+|-----|-----------|
+| **Admin** | Hamma narsa (read, write, delete, control) |
+| **User** | Ko'rish va boshqarish (read, control) |
+| **Guest** | Faqat ko'rish (read) |
 
-Dastur quyidagi ma'lumotlarni so'raydi:
-1. **Trafik darajasi** (0-100)
-2. **Tezlik** (km/h)
-3. **Harorat** (°C)
-4. **Ob-havo holati** (clear/cloudy/rainy/snowy/foggy/stormy)
-5. **Foydalanuvchi roli** (admin/user/guest)
-
-### Testlarni ishga tushirish:
-```bash
-npm test
-```
-
-### Test natijalarini kuzatish (watch mode):
-```bash
-npm run test:watch
-```
-
-## Test qamrovi
-
-Loyihada **35 ta unit test** mavjud:
-
-- **Singleton Pattern + Facade:** 6 test
-- **Factory Pattern:** 5 test
-- **Builder Pattern:** 5 test
-- **Adapter Pattern (Traffic):** 5 test
-- **Adapter Pattern (Weather):** 6 test
-- **Proxy Pattern:** 6 test
-- **Integration Tests:** 2 test
-
-Barcha testlar muvaffaqiyatli o'tadi ✅
-
-## Foydalanuvchi rollari
-
-### Admin
-- Barcha operatsiyalarni bajarishi mumkin
-- Ruxsatlar: read, write, delete, control
-
-### User
-- Tizimni ko'rishi va boshqarishi mumkin
-- Ruxsatlar: read, control
-
-### Guest
-- Faqat tizim holatini ko'rishi mumkin
-- Ruxsatlar: read
-
-## Misol
+## 📝 Kod namunasi
 
 ```javascript
-// Singleton pattern
+// Controller yaratish (Singleton)
 const controller = new CityController();
 
-// Factory pattern
+// Tizim yaratish (Factory)
 const lighting = SubsystemFactory.createSubsystem("lighting");
 
-// Builder pattern
+// Bino qurish (Builder)
 const building = new BuildingBuilder("Smart School")
   .addLighting()
   .addSecurity()
-  .addEnergySystem()
   .build();
 
-// Adapter pattern
-const trafficAdapter = new TrafficAdapter(85, 25);
-const weatherAdapter = new WeatherAdapter(20, "clear");
-
-// Proxy pattern
-const securityProxy = new SubsystemProxy(security, "admin");
-
-// Facade pattern
-controller.startAllSystems();  // Barcha tizimni yoqish
+// Barcha tizimni boshqarish (Facade)
+controller.startAllSystems();  // Yoqish
 controller.nightMode();         // Tungi rejim
 controller.emergencyMode();     // Favqulodda holat
-controller.getSystemStatus();   // Holat ko'rish
 ```
 
-## Muallif
+---
 
-**Shoxruzbek**
-
-## Litsenziya
-
-ISC
+**Muallif:** Shoxruzbek | **Lab Work #1** | **Node.js v20.18.0**

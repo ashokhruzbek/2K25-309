@@ -1,4 +1,3 @@
-// core/singleton/CityController.js
 class CityController {
   constructor() {
     // Singleton pattern

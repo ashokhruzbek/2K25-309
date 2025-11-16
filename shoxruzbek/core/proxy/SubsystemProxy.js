@@ -35,7 +35,9 @@ class SubsystemProxy {
       } else if (this.subsystem.activateCameras) {
         this.subsystem.activateCameras();
       }
+      return true;
     }
+    return false;
   }
 
   deactivate() {
@@ -49,7 +51,9 @@ class SubsystemProxy {
       } else if (this.subsystem.deactivateCameras) {
         this.subsystem.deactivateCameras();
       }
+      return true;
     }
+    return false;
   }
 
   getStatus() {

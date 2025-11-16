@@ -9,6 +9,8 @@ import TrafficAdapter from './core/adapters/TrafficAdapter.js';
 import WeatherAdapter from './core/adapters/WeatherAdapter.js';
 import SubsystemProxy from './core/proxy/SubsystemProxy.js';
 import LightingSystem from './modules/lighting/LightingSystem.js';
+import EnergySystem from './modules/energy/EnergySystem.js';
+import SecuritySystem from './modules/security/SecuritySystem.js';
 
 // ============================================
 // 1. SINGLETON PATTERN - CityController
@@ -80,6 +82,23 @@ describe('Singleton Pattern - CityController', () => {
     
     expect(status.lighting).toBeDefined();
   });
+
+  test('Facade - Favqulodda holat rejimi', () => {
+    const controller = new CityController();
+    const lighting = SubsystemFactory.createSubsystem('lighting');
+    const security = SubsystemFactory.createSubsystem('security');
+    const energy = SubsystemFactory.createSubsystem('energy');
+    
+    controller.registerSubsystem('lighting', lighting);
+    controller.registerSubsystem('security', security);
+    controller.registerSubsystem('energy', energy);
+    
+    controller.emergencyMode();
+    
+    expect(lighting.status).toBe('ON');
+    expect(security.status).toBe('ACTIVE');
+    expect(energy.status).toBe('ON');
+  });
 });
 
 // ============================================
@@ -114,7 +133,42 @@ describe('Factory Pattern - SubsystemFactory', () => {
 });
 
 // ============================================
-// 3. BUILDER PATTERN - BuildingBuilder
+// 3. MODULE TESTS - EnergySystem
+// ============================================
+describe('Module Tests - EnergySystem', () => {
+  test('EnergySystem boshlang\'ich holati STANDBY bo\'lishi', () => {
+    const energy = new EnergySystem();
+    expect(energy.status).toBe('STANDBY');
+  });
+
+  test('EnergySystem start() metodi ishlashi', () => {
+    const energy = new EnergySystem();
+    energy.start();
+    expect(energy.status).toBe('ON');
+  });
+
+  test('EnergySystem shutdown() metodi ishlashi', () => {
+    const energy = new EnergySystem();
+    energy.start();
+    energy.shutdown();
+    expect(energy.status).toBe('OFF');
+  });
+});
+
+// ============================================
+// 4. MODULE TESTS - SecuritySystem  
+// ============================================
+describe('Module Tests - SecuritySystem', () => {
+  test('SecuritySystem deactivateCameras() metodi ishlashi', () => {
+    const security = new SecuritySystem();
+    security.activateCameras();
+    security.deactivateCameras();
+    expect(security.status).toBe('OFF');
+  });
+});
+
+// ============================================
+// 5. BUILDER PATTERN - BuildingBuilder
 // ============================================
 describe('Builder Pattern - BuildingBuilder', () => {
   test('Bino to\'g\'ri qurilishi', () => {
@@ -157,6 +211,17 @@ describe('Builder Pattern - BuildingBuilder', () => {
     expect(building.lights).toBe(true);
     expect(building.security).toBe(true);
     expect(building.energy).toBe(true);
+  });
+
+  test('showInfo() metodi ishlashi', () => {
+    const building = new BuildingBuilder('Test Building')
+      .addLighting()
+      .addSecurity()
+      .build();
+    
+    // showInfo() console.log ishlatadi, faqat metodning mavjudligini tekshiramiz
+    expect(typeof building.showInfo).toBe('function');
+    building.showInfo(); // Metodning xatosiz ishlashini tekshirish
   });
 });
 
@@ -304,6 +369,44 @@ describe('Proxy Pattern - SubsystemProxy', () => {
     const result = proxy.modifySettings();
     
     expect(result).toBe(true);
+  });
+
+  test('User aktivatsiya qila olishi', () => {
+    const proxy = new SubsystemProxy(lighting, 'user');
+    const result = proxy.activate();
+    
+    expect(result).toBe(true);
+    expect(lighting.status).toBe('ON');
+  });
+
+  test('Guest aktivatsiya qila olmasligi', () => {
+    const proxy = new SubsystemProxy(lighting, 'guest');
+    const result = proxy.activate();
+    
+    expect(result).toBe(false);
+  });
+
+  test('Admin deaktivatsiya qila olishi', () => {
+    const proxy = new SubsystemProxy(lighting, 'admin');
+    proxy.activate();
+    const result = proxy.deactivate();
+    
+    expect(result).toBe(true);
+    expect(lighting.status).toBe('OFF');
+  });
+
+  test('Admin data o\'chira olishi', () => {
+    const proxy = new SubsystemProxy(lighting, 'admin');
+    const result = proxy.deleteData();
+    
+    expect(result).toBe(true);
+  });
+
+  test('User data o\'chira olmasligi', () => {
+    const proxy = new SubsystemProxy(lighting, 'user');
+    const result = proxy.deleteData();
+    
+    expect(result).toBe(false);
   });
 });
 

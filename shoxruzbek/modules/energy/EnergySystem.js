@@ -1,4 +1,3 @@
-// modules/energy/EnergySystem.js
 class EnergySystem {
   constructor() {
     this.status = "STANDBY";

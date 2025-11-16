@@ -1,13 +1,3 @@
-// core/adapters/TrafficAdapter.js
-
-/**
- * ADAPTER PATTERN
- *
- * Vazifasi: Tashqi trafik API dan kelgan ma'lumotlarni
- * bizning Transport sistemasiga mos formatga o'zgartirish
- */
-
-// Tashqi trafik servisi (bu real API bo'lishi mumkin)
 class ExternalTrafficAPI {
   constructor(trafficLevel = 85, avgSpeed = 25) {
     this.trafficLevel = trafficLevel;

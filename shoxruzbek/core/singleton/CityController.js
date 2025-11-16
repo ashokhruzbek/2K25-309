@@ -22,11 +22,6 @@ class CityController {
     this[name] = subsystem;
     console.log(`${name} subsystem registered`);
   }
-
-  // ============================================
-  // FACADE PATTERN - Sodda interfeys
-  // ============================================
-
   // Barcha sistemalarni yoqish
   startAllSystems() {
     console.log("\n=== Barcha sistemalar ishga tushmoqda ===");

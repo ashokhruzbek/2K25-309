@@ -1,4 +1,3 @@
-// modules/security/SecuritySystem.js
 class SecuritySystem {
   constructor() {
     this.status = "OFF";

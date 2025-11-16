@@ -1,4 +1,3 @@
-// modules/lighting/LightingSystem.js
 class LightingSystem {
   constructor() {
     this.status = "OFF";

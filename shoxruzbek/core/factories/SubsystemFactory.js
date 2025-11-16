@@ -1,4 +1,3 @@
-// core/factories/SubsystemFactory.js
 import LightingSystem from "../../modules/lighting/LightingSystem.js";
 import TransportSystem from "../../modules/transport/TransportSystem.js";
 import SecuritySystem from "../../modules/security/SecuritySystem.js";

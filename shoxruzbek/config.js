@@ -1,4 +1,3 @@
-// config.js
 export default {
   cityName: "SmartCity",
   version: "1.0.0",

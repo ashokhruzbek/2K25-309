@@ -1,12 +1,3 @@
-// core/proxy/SubsystemProxy.js
-
-/**
- * PROXY PATTERN
- * 
- * Vazifasi: Subsystemlarga kirishdan oldin foydalanuvchi 
- * huquqlarini tekshirish (authentication & authorization)
- */
-
 class SubsystemProxy {
   constructor(subsystem, userRole) {
     this.subsystem = subsystem;

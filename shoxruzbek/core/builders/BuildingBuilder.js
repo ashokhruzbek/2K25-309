@@ -1,4 +1,3 @@
-// core/builders/BuildingBuilder.js
 class Building {
   constructor() {
     this.name = "";
